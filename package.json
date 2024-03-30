@@ -1,12 +1,13 @@
 {
-  "name": "@awen/utils",
+  "name": "awen-utils",
   "version": "0.0.1",
   "description": "工具",
   "main": "main.js",
+  "types": "main.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "npm cache clean --force",
-    "publish": "npm publish --access public"
+    "published": "npm publish --access public"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,6 @@
   "homepage": "https://github.com/ruansiwen/-sw#readme",
   "publishConfig": {
     "access": "public",
-    "registry": "http://registry.npmjs.org/"
+    "registry": "https://registry.npmjs.org/"
   }
 }
