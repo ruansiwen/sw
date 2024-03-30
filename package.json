@@ -5,13 +5,17 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "publish":"npm publish --access public"
+    "clean": "npm cache clean --force",
+    "publish": "npm publish --access public"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ruansiwen/-sw.git"
   },
-  "keywords": ["utils","@sw/utils"],
+  "keywords": [
+    "utils",
+    "@sw/utils"
+  ],
   "author": "awen",
   "license": "ISC",
   "bugs": {
@@ -19,6 +23,7 @@
   },
   "homepage": "https://github.com/ruansiwen/-sw#readme",
   "publishConfig": {
+    "access": "public",
     "registry": "http://registry.npmjs.org/"
   }
 }
