@@ -1,24 +1,34 @@
 {
   "name": "awen-utils",
   "version": "0.0.1",
-  "description": "工具",
-  "main": "main.js",
-  "types": "main.d.ts",
+  "description": "awen utils",
+  "author": "awen",
+  "license": "ISC",
+  "type": "module",
+  "main": "lib/index.cjs.js",
+  "module": "lib/index.esm.js",
+  "types": "lib/types/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup -c --configPlugin typescript",
+    "watch": "rollup -c -w --configPlugin typescript",
     "clean": "npm cache clean --force",
-    "published": "npm publish --access public"
+    "published": "npm publish --access public",
+    "prepare": "husky install"
   },
+  "files": [
+    "lib/**",
+    "README.md",
+    "LICENSE"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ruansiwen/-sw.git"
   },
   "keywords": [
     "utils",
-    "@sw/utils"
+    "@sw/utils",
+    "sdk"
   ],
-  "author": "awen",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/ruansiwen/-sw/issues"
   },
@@ -26,5 +36,16 @@
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "vue": "^3.0.0 || ^2.7.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^12.1.2",
+    "husky": "^8.0.0",
+    "rollup": "^4.41.1",
+    "tslib": "^2.8.1",
+    "typescript": "^5.8.3"
   }
 }

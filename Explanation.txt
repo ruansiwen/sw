@@ -1,0 +1,17 @@
+rollup.config.js:
+    Node.js 默认按 CommonJS 加载
+    如果 package.json 设置了 "type": "module" 则视为 ESM
+
+rollup.config.cjs:
+    强制作为 CommonJS,无视 package.json 的 "type" 设置
+
+rollup.config.mjs:
+    强制作为 ES Module,无视 package.json 的 "type" 设置
+
+
+
+
+
+
+
+
