@@ -1,2 +1,3 @@
-import { add, subtract } from "./math";
-export { add, subtract };
+import { Math } from "./math";
+import { Data } from "./date";
+export { Math, Data };

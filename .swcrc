@@ -1,0 +1,108 @@
+{
+    // "$schema": "https://json.schemastore.org/swcrc", // 可选，用于编辑器智能提示
+    "jsc": { // JavaScript Compiler options
+        "parser": { // 解析器选项
+            "syntax": "typescript", // "ecmascript" 或 "typescript"
+            "jsx": true, // 是否支持 JSX
+            "dynamicImport": true, // 是否支持动态导入
+            "privateMethod": true, // 是否支持私有方法
+            "functionBind": false, // 是否支持 :: 操作符
+            "exportDefaultFrom": true,
+            "exportNamespaceFrom": true,
+            "decorators": true, // 是否支持装饰器 (legacy)
+            "decoratorsBeforeExport": true,
+            "topLevelAwait": true,
+            "importMeta": true
+            // ... 更多 TypeScript 相关解析选项，如 "tsx": true, "dts": false
+        },
+        "transform": { // 转换选项
+            "react": { // React/JSX 相关转换
+                "runtime": "automatic", // "automatic" (React 17+) 或 "classic"
+                "pragma": "React.createElement", // 经典模式下的 pragma
+                "pragmaFrag": "React.Fragment", // 经典模式下的 Fragment pragma
+                "throwIfNamespace": true,
+                "development": false, // 是否为开发模式 (影响辅助函数和警告)
+                "useBuiltins": true, // 是否使用内置的 React helper
+                "refresh": false // 是否启用 React Fast Refresh (通常由框架插件控制)
+            },
+            "constModules": { // 将 const 枚举转换为对象字面量
+                "globals": {
+                    // " CertainesConstantes": { "FOO": "bar" }
+                }
+            },
+            "optimizer": { // 优化相关的转换
+                "globals": { // 全局变量定义，用于 DCE (Dead Code Elimination)
+                    // "vars": { "__DEBUG__": "true" }
+                },
+                "jsonify": { // 将对象转换为 JSON 字符串
+                    "minCost": 1024
+                }
+            },
+            "legacyDecorator": true, // 是否使用旧版装饰器提案
+            "decoratorMetadata": false, // (与 TypeScript 的 emitDecoratorMetadata 类似)
+            "regenerator": { // async/await 和生成器函数的转换
+                "importPath": "@swc/helpers/lib/regenerator.js" // 默认为内联 regenerator runtime
+            }
+            // ... 还有很多其他转换器，如 "hidden": { "jest": true } 用于 Jest hoisting
+        },
+        "target": "es2016", // 目标 JavaScript 版本 (如 "es3", "es5", "es2015", ..., "es2022")
+        "loose": false, // 是否启用宽松模式 (可能不完全符合规范，但代码更小/更快)
+        "externalHelpers": false, // 是否将帮助函数从 @swc/helpers 导入，而不是内联
+        "keepClassNames": false, // 是否保留类名 (用于调试或某些依赖类名的库)
+        "baseUrl": ".", // 用于路径解析的基URL
+        "paths": { // 类似于 tsconfig.json 的 paths，用于模块路径别名
+            // "@/components/*": ["src/components/*"]
+        }
+    },
+    "module": { // 模块系统配置
+        "type": "es6", // 输出的模块类型: "es6", "commonjs", "amd", "umd", "systemjs"
+        "strict": false, // 是否启用严格模式 "use strict";
+        "strictMode": true, // (同上)
+        "lazy": false, // 是否懒加载模块 (某些模块系统)
+        "noInterop": false, // 是否禁用 Babel 风格的 __esModule interop
+        "ignoreDynamic": false // 是否忽略动态导入的转换
+    },
+    "minify": false, // 是否启用代码压缩 (true/false)
+    // 或者更详细的压缩配置对象 (Terser 兼容的选项)
+    // "minify": {
+    //   "compress": {
+    //     "unused": true
+    //   },
+    //   "mangle": true // 是否混淆名称
+    // },
+    "sourceMaps": true, // "inline" 或 true/false
+    "inlineSourcesContent": true, // 是否将源文件内容内联到 source map 中
+    "isModule": "unknown", // "unknown", true, false. 指示输入是否为 ES 模块
+    "inputSourceMap": false, // 是否使用输入的 source map
+    "program": { // 高级配置，通常不需要手动设置
+        // ...
+    },
+    "filename": "", // 用于错误报告的文件名
+    "cwd": ".", // 当前工作目录
+    "env": { // 基于 NODE_ENV 的特定配置
+        "development": {
+            "jsc": {
+                "transform": {
+                    "react": {
+                        "development": true,
+                        "refresh": true // 假设在开发中启用了 Fast Refresh
+                    }
+                }
+            },
+            "sourceMaps": "inline"
+        },
+        "production": {
+            "minify": true,
+            "jsc": {
+                "transform": {
+                    "react": {
+                        "development": false
+                    }
+                },
+                "keepClassNames": false
+            }
+        }
+    },
+    "plugin": null // WASM 插件配置 (实验性)
+    // "plugin": (m) => new MyPluginVisitor(m) // 对于 JS 包装的 WASM 插件
+}

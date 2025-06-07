@@ -1,2 +1,4 @@
-export declare const add: (a: number, b: number) => number;
-export declare const subtract: (a: number, b: number) => number;
+export declare const Math: {
+    add: (a: number, b: number) => number;
+    subtract: (a: number, b: number) => number;
+};

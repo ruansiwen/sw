@@ -1,0 +1,17 @@
+{ 
+    "presets": [ 
+        "@babel/preset-typescript" 
+    ], 
+    "env": { 
+        "react": { 
+            "presets": [ 
+                "@babel/preset-react" 
+            ] 
+        }, 
+        "vue": { 
+            "plugins": [ 
+                "@vue/babel-plugin-jsx" 
+            ] 
+        } 
+    } 
+} 

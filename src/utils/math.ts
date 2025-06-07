@@ -1,3 +1,8 @@
-export const add = (a: number, b: number) => a + b;
+const add = (a: number, b: number) => a + b;
 
-export const subtract = (a: number, b: number) => a - b;
+const subtract = (a: number, b: number) => a - b;
+
+export const Math = {
+  add,
+  subtract,
+};

@@ -1,2 +1,2 @@
-import { add, subtract } from "./utils/index";
-export { add, subtract };
+export * from "./utils/index";
+export * from "./svg-icon/react/index";
